@@ -7,6 +7,7 @@ import { ImageBlock } from 'src/components/blocks/ImageBlock';
 import { ListBlock } from 'src/components/blocks/ListBlock';
 import { TextBlock } from 'src/components/blocks/TextBlock';
 import { FunnelType, PageType } from 'src/types/funnel';
+import { cn } from 'src/utils/cn';
 
 type FunnelPreviewProps = {
   funnel: FunnelType;
@@ -14,13 +15,14 @@ type FunnelPreviewProps = {
 
 export const FunnelPreview = ({ funnel }: FunnelPreviewProps) => {
   const [activePage, setActivePage] = useState(0);
+  const maxPageIndex = funnel.pages.length - 1;
 
   const onClickPrevious = () => {
     setActivePage((currentIndex) => Math.max(0, currentIndex - 1));
   };
 
   const onClickNext = () => {
-    setActivePage((currentIndex) => Math.min(funnel.pages.length - 1, currentIndex + 1));
+    setActivePage((currentIndex) => Math.min(maxPageIndex, currentIndex + 1));
   };
 
   const currentPage = useMemo<PageType>(() => {
@@ -35,7 +37,13 @@ export const FunnelPreview = ({ funnel }: FunnelPreviewProps) => {
     <div className="flex gap-4 items-center">
       <div>
         <button onClick={onClickPrevious}>
-          <ChevronLeftIcon className="h-20 w-20 text-blue-500 hover:text-blue-700" />
+          <ChevronLeftIcon
+            className={cn({
+              'h-20 w-20 text-blue-500': true,
+              'hover:text-blue-700': activePage > 0,
+              'text-gray-400 cursor-default': activePage === 0,
+            })}
+          />
         </button>
       </div>
       <div className={`w-[375px] h-[600px]`} style={{ backgroundColor: funnel.bgColor }}>
@@ -52,7 +60,13 @@ export const FunnelPreview = ({ funnel }: FunnelPreviewProps) => {
       </div>
       <div>
         <button onClick={onClickNext}>
-          <ChevronRightIcon className="h-20 w-20 text-blue-500 hover:text-blue-700" />
+          <ChevronRightIcon
+            className={cn({
+              'h-20 w-20 text-blue-500': true,
+              'hover:text-blue-700': activePage < maxPageIndex,
+              'text-gray-400 cursor-default': activePage >= maxPageIndex,
+            })}
+          />
         </button>
       </div>
     </div>
