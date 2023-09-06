@@ -15,12 +15,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <nav className="flex items-center justify-between flex-wrap bg-gray-700 p-4">
           <div className="flex items-center flex-shrink-0 text-white mr-6">
-            <img src="/logo.png" width="36" height="36" />
+            <img src="/logo.png" width="36" height="36" alt="Perspective logo" />
           </div>
 
-          <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-white">
-            Funnel Preview
-          </div>
+          <div className="flex-grow flex items-center w-auto text-white">Funnel Preview</div>
         </nav>
 
         {children}

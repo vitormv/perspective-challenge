@@ -4,6 +4,6 @@ type ImageBlockProps = ImageBlockType;
 
 export const ImageBlock = ({ src }: ImageBlockProps) => (
   <div>
-    <img src={src} width="100px" />
+    <img className="rounded-lg" src={src} width="100%" />
   </div>
 );

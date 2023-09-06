@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { ButtonBlock } from 'src/components/blocks/ButtonBlock';
 import { ImageBlock } from 'src/components/blocks/ImageBlock';
 import { ListBlock } from 'src/components/blocks/ListBlock';
@@ -46,17 +46,18 @@ export const FunnelPreview = ({ funnel }: FunnelPreviewProps) => {
           />
         </button>
       </div>
-      <div className={`w-[375px] h-[600px]`} style={{ backgroundColor: funnel.bgColor }}>
-        <div key={currentPage.id}>
-          {currentPage.blocks.map((block) => (
-            <>
-              {block.type === 'text' && <TextBlock {...block} />}
-              {block.type === 'image' && <ImageBlock {...block} />}
-              {block.type === 'list' && <ListBlock {...block} />}
-              {block.type === 'button' && <ButtonBlock {...block} />}
-            </>
-          ))}
-        </div>
+      <div
+        className={`flex flex-col w-[375px] h-[600px] gap-6 overflow-y-auto p-4`}
+        style={{ backgroundColor: funnel.bgColor }}
+      >
+        {currentPage.blocks.map((block) => (
+          <Fragment key={block.id}>
+            {block.type === 'text' && <TextBlock {...block} />}
+            {block.type === 'image' && <ImageBlock {...block} />}
+            {block.type === 'list' && <ListBlock {...block} />}
+            {block.type === 'button' && <ButtonBlock {...block} />}
+          </Fragment>
+        ))}
       </div>
       <div>
         <button onClick={onClickNext}>
