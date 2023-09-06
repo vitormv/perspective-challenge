@@ -1,62 +1,44 @@
-export type Funnel = {
+export type FunnelType = {
   name: string;
   bgColor: string;
-  pages: Page[];
+  pages: PageType[];
 };
 
-export type Page = {
+export type PageType = {
   id: string;
-  blocks: Block[];
+  blocks: Array<TextBlockType | ImageBlockType | ListBLockType | ButtonBlockType>;
 };
 
-export type Block = {
+export type BlockType = {
   id: string;
 };
 
-export type TextBlock = Block & {
+export type TextBlockType = BlockType & {
   type: 'text';
   text: string;
   color: string;
-  align: 'center' | 'left' | 'right';
+  align: string;
 };
 
-export type ImageBlock = Block & {
-  type: 'text';
-  text: string;
-  color: string;
-  align: 'center' | 'left' | 'right';
+export type ImageBlockType = BlockType & {
+  type: 'image';
+  src: string;
 };
 
-export type ButtonBlock = Block & {
+export type ButtonBlockType = BlockType & {
   type: 'button';
   text: string;
   color: string;
   bgColor: string;
 };
 
-export type ListBLock = Block & {
-  type: 'list';
-  items: [
-    {
-      title: 'Drinks';
-      description: 'Tshhh... Ahhhhh!';
-      src: 'https://img.icons8.com/0076FF/win10/247/kawaii-soda';
-    },
-    {
-      title: 'Icecream';
-      description: 'Cool down ...';
-      src: 'https://img.icons8.com/0076FF/win10/247/kawaii-cupcake';
-    },
-    {
-      title: 'Taccos';
-      description: '... to heat up';
-      src: 'https://img.icons8.com/0076FF/win10/247/kawaii-taco';
-    },
-  ];
-};
-
-export type Item = {
+export type ListItemType = {
   title: string;
   description: string;
   src: string;
+};
+
+export type ListBLockType = BlockType & {
+  type: 'list';
+  items: ListItemType[];
 };
