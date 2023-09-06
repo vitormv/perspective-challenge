@@ -10,16 +10,17 @@ type ChooseFunnelFileProps = {
 export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState('');
+  const [hasError, setError] = useState(false);
 
   const showSampleHandler = () => {
     setFileName('');
     onLoadJson(undefined);
+    setError(false);
   };
 
   const onUploadFile: ChangeEventHandler<HTMLInputElement> = (e: any) => {
+    setError(false);
     const uploadedFile = e.target.files[0];
-
-    console.log(uploadedFile);
 
     if (!uploadedFile) {
       showSampleHandler();
@@ -31,11 +32,12 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
     reader.addEventListener('load', () => {
       const funnelObject = parseJsonSilent(reader.result as string);
 
-      console.log({ funnelObject, result: reader.result });
+      setFileName(uploadedFile.name);
 
       if (funnelObject) {
         onLoadJson(funnelObject);
-        setFileName(uploadedFile.name);
+      } else {
+        setError(true);
       }
 
       // @todo handle invalid file
@@ -52,7 +54,7 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
         onClick={showSampleHandler}
         className={cn({
           'p-4 grow': true,
-          'bg-blue-500 text-white ': !hasFileName,
+          'bg-blue-500 text-white': !hasFileName,
         })}
       >
         Use sample
@@ -61,7 +63,8 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
       <label
         className={cn({
           'p-4 grow': true,
-          'bg-blue-500 text-white ': hasFileName,
+          'bg-blue-500 text-white': hasFileName,
+          'border-solid bg-red-200 border-red-600': hasError && hasFileName,
         })}
       >
         <input
