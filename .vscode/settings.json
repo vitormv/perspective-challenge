@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [100],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
