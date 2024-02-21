@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['var(--font-inter)', 'sans-serif'],
+      serif: ['var(--font-lora)', 'serif'],
+      display: ['var(--font-lora)', 'serif'],
     },
   },
   plugins: [],
