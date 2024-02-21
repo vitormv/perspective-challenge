@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: colors.sky[900],
+        primaryHighlight: colors.sky[950],
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
