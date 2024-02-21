@@ -45,7 +45,7 @@ export const FunnelPreview = () => {
           <button onClick={onClickPrevious}>
             <ChevronLeftIcon
               className={cn({
-                'h-20 w-20 text-blue-500': true,
+                'h-20 w-20 text-primary': true,
                 'hover:text-blue-700': activePage > 0,
                 'text-gray-400 cursor-default': activePage === 0,
               })}
@@ -69,7 +69,7 @@ export const FunnelPreview = () => {
           <button onClick={onClickNext}>
             <ChevronRightIcon
               className={cn({
-                'h-20 w-20 text-blue-500': true,
+                'h-20 w-20 text-primary': true,
                 'hover:text-blue-700': activePage < maxPageIndex,
                 'text-gray-400 cursor-default': activePage >= maxPageIndex,
               })}

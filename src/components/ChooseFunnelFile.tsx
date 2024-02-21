@@ -1,5 +1,5 @@
-import { ChangeEventHandler, Fragment, useMemo, useRef, useState } from 'react';
-import { FunnelType, PageType } from 'src/types/funnel';
+import { ChangeEventHandler, useRef, useState } from 'react';
+import { FunnelType } from 'src/types/funnel';
 import { cn } from 'src/utils/cn';
 import { parseJsonSilent } from 'src/utils/parseJsonSilent';
 
@@ -54,7 +54,7 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
         onClick={showSampleHandler}
         className={cn({
           'p-4 grow': true,
-          'bg-blue-500 text-white': !hasFileName,
+          'bg-primary text-white': !hasFileName,
         })}
       >
         Use sample
@@ -63,7 +63,7 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
       <label
         className={cn({
           'p-4 grow': true,
-          'bg-blue-500 text-white': hasFileName,
+          'bg-primary text-white': hasFileName,
           'border-solid bg-red-200 border-red-600': hasError && hasFileName,
         })}
       >

@@ -24,8 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.png" sizes="any" />
       </head>
       <body className={`${inter.variable} ${lora.variable} font-sans`}>
-        <nav className="bg-gray-700 p-4">
-          <div className="container mx-auto flex items-center justify-between flex-variable">
+        <nav className="bg-primary p-4">
+          <a className="container mx-auto flex items-center justify-between flex-variable" href="/">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
               <Image src="/logo.png" width="36" height="36" alt="Perspective logo" />
             </div>
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex-grow flex items-center w-auto text-white font-display text-xl">
               Funnel Preview
             </div>
-          </div>
+          </a>
         </nav>
 
         {children}

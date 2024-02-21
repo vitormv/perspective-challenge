@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const config: Config = {
   content: [
@@ -7,11 +8,15 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
-    fontFamily: {
-      sans: ['var(--font-inter)', 'sans-serif'],
-      serif: ['var(--font-lora)', 'serif'],
-      display: ['var(--font-lora)', 'serif'],
+    extend: {
+      colors: {
+        primary: colors.sky[900],
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        serif: ['var(--font-lora)', 'serif'],
+        display: ['var(--font-lora)', 'serif'],
+      },
     },
   },
   plugins: [],
