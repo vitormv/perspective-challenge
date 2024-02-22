@@ -53,32 +53,59 @@ export const FunnelPreview = () => {
   }, []);
 
   return (
-    <div
-      className="flex h-full w-full flex-1 flex-col items-center gap-4"
-      style={{ backgroundColor: funnel.bgColor }}
-    >
-      <div
-        className={`relative flex w-full max-w-full flex-1 flex-col overflow-hidden md:max-w-xl`}
-      >
+    <>
+      <div className="mb-10 w-[375px]">
+        <ChooseFunnelFile onLoadJson={setUploadedFunnel} />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <div>
+          <button onClick={onNavigateBackwards}>
+            <ChevronLeftIcon
+              className={cn({
+                'h-20 w-20 text-primary': true,
+                'hover:text-blue-700': activePage > 0,
+                'cursor-default text-gray-400': activePage === 0,
+              })}
+            />
+          </button>
+        </div>
         <div
-          key={`page.${activePage}-${funnel.pages.length}`}
-          className={`h-full w-full flex-1 animate-page-appear overflow-hidden`}
+          className={`relative flex h-[600px] w-[375px] flex-col overflow-hidden `}
+          style={{ backgroundColor: funnel.bgColor }}
         >
-          <div className="flex h-full w-full flex-1 flex-col gap-6 overflow-y-auto p-4 ">
-            {currentPage.blocks.map((block, i) => (
-              <Fragment key={block.id}>
-                {block.type === 'text' && <TextBlock {...block} isFirst={i === 0} />}
-                {block.type === 'image' && <ImageBlock {...block} />}
-                {block.type === 'list' && <ListBlock {...block} />}
-                {block.type === 'button' && <ButtonBlock {...block} />}
-              </Fragment>
-            ))}
+          <div
+            key={`page.${activePage}-${funnel.pages.length}`}
+            className={`h-full w-full animate-page-appear overflow-hidden`}
+          >
+            <div className="flex h-full w-full flex-1 flex-col gap-6 overflow-y-auto p-4 ">
+              {currentPage.blocks.map((block) => (
+                <Fragment key={block.id}>
+                  {block.type === 'text' && <TextBlock {...block} />}
+                  {block.type === 'image' && <ImageBlock {...block} />}
+                  {block.type === 'list' && <ListBlock {...block} />}
+                  {block.type === 'button' && <ButtonBlock {...block} />}
+                </Fragment>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-0 pt-2">
+            <ProgressBar steps={funnel.pages.length} currentStep={activePage + 1} />
           </div>
         </div>
+        <div>
+          <button onClick={onNavigateForward}>
+            <ChevronRightIcon
+              className={cn({
+                'h-20 w-20 text-primary': true,
+                'hover:text-blue-700': activePage < maxPageIndex,
+                'cursor-default text-gray-400': activePage >= maxPageIndex,
+              })}
+            />
+          </button>
+        </div>
       </div>
-      <div className="flex-0 fixed bottom-0 w-full pt-2">
-        <ProgressBar steps={funnel.pages.length} currentStep={activePage + 1} />
-      </div>
-    </div>
+    </>
   );
 };

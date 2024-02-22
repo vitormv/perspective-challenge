@@ -1,4 +1,4 @@
-import type { ImageBlockType } from 'src/types/funnel';
+import { ImageBlockType } from 'src/funnel.types';
 
 type ImageBlockProps = ImageBlockType;
 

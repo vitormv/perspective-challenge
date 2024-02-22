@@ -22,15 +22,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.unsplash.com/photo-1578986568501-a6c637652d24?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+        />
       </head>
-      <body className={`${inter.variable} ${lora.variable} font-sans text-gray-900`}>
-        <nav className="bg-primary p-4">
-          <a className="container mx-auto flex items-center justify-between flex-variable" href="/">
-            <div className="flex items-center flex-shrink-0 text-white mr-6">
+      <body
+        className={`${inter.variable} ${lora.variable} flex min-h-screen flex-col justify-stretch font-sans text-gray-900`}
+      >
+        <nav className="grow-0 bg-primary p-4">
+          <a className="flex-variable mx-auto flex items-center justify-between" href="/">
+            <div className="mr-6 flex flex-shrink-0 items-center text-white">
               <Image src="/logo.png" width="36" height="36" alt="Perspective logo" />
             </div>
 
-            <div className="flex-grow flex items-center w-auto text-white font-display text-xl">
+            <div className="flex w-auto flex-grow items-center font-display text-xl text-white">
               Funnel Preview
             </div>
           </a>

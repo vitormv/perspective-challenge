@@ -1,9 +1,16 @@
-import type { TextBlockType } from 'src/types/funnel';
+import { TextBlockType } from 'src/funnel.types';
+import { cn } from 'src/utils/cn';
 
-type TextBlockProps = TextBlockType;
+type TextBlockProps = TextBlockType & { isFirst?: boolean };
 
-export const TextBlock = ({ align, color, text }: TextBlockProps) => (
-  <div className="text-2xl font-display mt-4" style={{ color, textAlign: align as any }}>
+export const TextBlock = ({ align, color, text, isFirst = false }: TextBlockProps) => (
+  <div
+    className={cn({
+      'mt-4 font-display text-2xl': true,
+      'animate-title-appear': isFirst,
+    })}
+    style={{ color, textAlign: align as any }}
+  >
     {text}
   </div>
 );

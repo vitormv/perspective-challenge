@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import colors from 'tailwindcss/colors';
 
 const config: Config = {
   content: [
@@ -10,8 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: colors.sky[900],
-        primaryHighlight: colors.sky[950],
+        primary: '#2D3B4E',
+        'primary-highlight': '#253141',
+        secondary: '#F4E4BA',
+        'secondary-highlight': '#EED595',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
@@ -20,6 +21,7 @@ const config: Config = {
       },
       animation: {
         'page-appear': 'appear-slide-up-fade 1s cubic-bezier(0.25, 1, 0.5, 1)',
+        'title-appear': 'title-appear-slide 1.3s cubic-bezier(0.25, 1, 0.5, 1)',
       },
     },
   },

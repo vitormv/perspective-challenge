@@ -16,9 +16,9 @@ export const ProgressBar = ({ steps, currentStep }: Props) => {
   if (steps < 2) return null;
 
   return (
-    <div className="flex h-1 bg-sky-200">
+    <div className="flex h-1 bg-sky-200 md:h-2">
       <div
-        className={`h-1 bg-sky-600 transition-all duration-300`}
+        className="bg-sky-600 transition-all duration-300 md:h-2"
         style={{ width: `${progress}%` }}
       />
     </div>
