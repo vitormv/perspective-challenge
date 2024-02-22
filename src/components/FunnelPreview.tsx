@@ -29,11 +29,7 @@ export const FunnelPreview = () => {
   }, [maxPageIndex]);
 
   const currentPage = useMemo<PageType>(() => {
-    const currentByIndex = funnel.pages.at(activePage);
-
-    if (currentByIndex) return currentByIndex;
-
-    return funnel.pages[0];
+    return funnel.pages.at(activePage) ?? funnel.pages[0];
   }, [funnel, activePage]);
 
   return (
@@ -55,18 +51,23 @@ export const FunnelPreview = () => {
           </button>
         </div>
         <div
-          className={`flex flex-col w-[375px] h-[600px] overflow-y-auto relative`}
+          className={`flex flex-col w-[375px] h-[600px] overflow-hidden relative `}
           style={{ backgroundColor: funnel.bgColor }}
         >
-          <div className="flex-1 flex flex-col gap-6 w-full h-full p-4 overflow-y-auto">
-            {currentPage.blocks.map((block) => (
-              <Fragment key={block.id}>
-                {block.type === 'text' && <TextBlock {...block} />}
-                {block.type === 'image' && <ImageBlock {...block} />}
-                {block.type === 'list' && <ListBlock {...block} />}
-                {block.type === 'button' && <ButtonBlock {...block} />}
-              </Fragment>
-            ))}
+          <div
+            key={`page.${activePage}-${funnel.pages.length}`}
+            className={`h-full animate-page-appear w-full overflow-hidden`}
+          >
+            <div className="flex-1 flex flex-col gap-6 w-full h-full p-4 overflow-y-auto ">
+              {currentPage.blocks.map((block) => (
+                <Fragment key={block.id}>
+                  {block.type === 'text' && <TextBlock {...block} />}
+                  {block.type === 'image' && <ImageBlock {...block} />}
+                  {block.type === 'list' && <ListBlock {...block} />}
+                  {block.type === 'button' && <ButtonBlock {...block} />}
+                </Fragment>
+              ))}
+            </div>
           </div>
 
           <div className="flex-0 pt-2">

@@ -19,3 +19,17 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+
+@keyframes appear-slide-up-fade {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

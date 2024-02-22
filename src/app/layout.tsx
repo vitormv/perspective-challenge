@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
       </head>
-      <body className={`${inter.variable} ${lora.variable} font-sans`}>
+      <body className={`${inter.variable} ${lora.variable} font-sans text-gray-900`}>
         <nav className="bg-primary p-4">
           <a className="container mx-auto flex items-center justify-between flex-variable" href="/">
             <div className="flex items-center flex-shrink-0 text-white mr-6">

@@ -18,6 +18,9 @@ const config: Config = {
         serif: ['var(--font-lora)', 'serif'],
         display: ['var(--font-lora)', 'serif'],
       },
+      animation: {
+        'page-appear': 'appear-slide-up-fade 1s cubic-bezier(0.25, 1, 0.5, 1)',
+      },
     },
   },
   plugins: [],
