@@ -1,5 +1,5 @@
 import { ChangeEventHandler, useRef, useState } from 'react';
-import { FunnelType } from 'src/types/funnel';
+import { FunnelType } from 'src/funnel.types';
 import { cn } from 'src/utils/cn';
 import { parseJsonSilent } from 'src/utils/parseJsonSilent';
 
@@ -49,11 +49,11 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
   const hasFileName = fileName !== '';
 
   return (
-    <div className="flex gap-1 justify-stretch w-full text-center">
+    <div className="flex w-full justify-stretch gap-1 text-center">
       <button
         onClick={showSampleHandler}
         className={cn({
-          'p-4 grow': true,
+          'grow p-4': true,
           'bg-primary text-white': !hasFileName,
         })}
       >
@@ -62,9 +62,9 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
 
       <label
         className={cn({
-          'p-4 grow': true,
+          'grow p-4': true,
           'bg-primary text-white': hasFileName,
-          'border-solid bg-red-200 border-red-600': hasError && hasFileName,
+          'border-solid border-red-600 bg-red-200': hasError && hasFileName,
         })}
       >
         <input
@@ -73,7 +73,7 @@ export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
           multiple={false}
           name="previewJson"
           onChange={onUploadFile}
-          className="text-center mb-10 hidden"
+          className="mb-10 hidden text-center"
         />
         {hasFileName ? `Showing ${fileName}` : "Click or drag'n'drop"}
       </label>

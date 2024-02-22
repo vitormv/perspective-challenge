@@ -1,22 +1,20 @@
 'use client';
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
-import { ChooseFunnelFile } from 'src/components/ChooseFunnelFile';
 import { ButtonBlock } from 'src/components/blocks/ButtonBlock';
 import { ImageBlock } from 'src/components/blocks/ImageBlock';
 import { ListBlock } from 'src/components/blocks/ListBlock';
 import { TextBlock } from 'src/components/blocks/TextBlock';
-import funnelExample from 'src/content/funnel.sample.json';
-import { cn } from 'src/utils/cn';
 import { ProgressBar } from 'src/components/common/ProgressBar';
 import { FunnelType, PageType } from 'src/funnel.types';
 
-export const FunnelPreview = () => {
-  const [activePage, setActivePage] = useState(0);
-  const [uploadedFunnel, setUploadedFunnel] = useState<FunnelType | undefined>();
+type Props = {
+  funnel: FunnelType;
+};
 
-  const funnel = uploadedFunnel ?? (funnelExample as FunnelType);
+export const FunnelPreview = ({ funnel }: Props) => {
+  const [activePage, setActivePage] = useState(0);
+
   const maxPageIndex = funnel.pages.length - 1;
 
   const onNavigateBackwards = useCallback(() => {
@@ -54,7 +52,7 @@ export const FunnelPreview = () => {
 
   return (
     <div
-      className="flex h-full w-full flex-1 flex-col items-center gap-4"
+      className="box-sizing flex h-full w-full flex-1 flex-col items-center gap-4"
       style={{ backgroundColor: funnel.bgColor }}
     >
       <div
@@ -64,7 +62,7 @@ export const FunnelPreview = () => {
           key={`page.${activePage}-${funnel.pages.length}`}
           className={`h-full w-full flex-1 animate-page-appear overflow-hidden`}
         >
-          <div className="flex h-full w-full flex-1 flex-col gap-6 overflow-y-auto p-4 ">
+          <div className="flex h-full w-full flex-1 flex-col gap-6 overflow-y-auto p-4 md:my-10">
             {currentPage.blocks.map((block, i) => (
               <Fragment key={block.id}>
                 {block.type === 'text' && <TextBlock {...block} isFirst={i === 0} />}

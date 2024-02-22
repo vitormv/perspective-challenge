@@ -1,0 +1,104 @@
+{
+  "name": "Shetland Sheepdogs Facts",
+  "bgColor": "#F5F5F5",
+  "pages": [
+    {
+      "id": "page1",
+      "blocks": [
+        {
+          "id": "block1",
+          "type": "text",
+          "text": "Welcome to Shetland Sheepdogs Facts!",
+          "color": "#202020",
+          "align": "center"
+        },
+        {
+          "id": "block2",
+          "type": "image",
+          "src": "https://source.unsplash.com/6RuArbLtvLU"
+        },
+        {
+          "id": "block3",
+          "type": "text",
+          "text": "Let's learn about Shetland Sheepdogs!",
+          "color": "#202020",
+          "align": "center"
+        },
+        {
+          "id": "block4",
+          "type": "list",
+          "items": [
+            {
+              "title": "Origin",
+              "description": "Shetland Sheepdogs originated in the Shetland Islands of Scotland.",
+              "src": "https://img.icons8.com/?size=256&id=XI9STLpsb7Zc&format=png"
+            },
+            {
+              "title": "Size",
+              "description": "They are small to medium dogs, usually weighing between 14 and 27 pounds.",
+              "src": "https://img.icons8.com/?size=256&id=16620&format=png"
+            },
+            {
+              "title": "Temperament",
+              "description": "Shetland Sheepdogs are known for their intelligence, agility, and loyalty.",
+              "src": "https://img.icons8.com/?size=256&id=43344&format=png"
+            }
+          ]
+        },
+        {
+          "id": "block5",
+          "type": "button",
+          "text": "Next Page",
+          "color": "white",
+          "bgColor": "#0076FF"
+        }
+      ]
+    },
+
+    {
+      "id": "page2",
+      "blocks": [
+        {
+          "id": "block9",
+          "type": "text",
+          "text": "Even more about Shetland Sheepdogs!",
+          "color": "#202020",
+          "align": "center"
+        },
+        {
+          "id": "block10",
+          "type": "image",
+          "src": "https://source.unsplash.com/PNPwHp5THYg"
+        },
+        {
+          "id": "block11",
+          "type": "list",
+          "items": [
+            {
+              "title": "Lifespan",
+              "description": "Shetland Sheepdogs typically live between 12 and 14 years.",
+              "src": "https://img.icons8.com/?size=256&id=bol3ymlUgol9&format=png"
+            },
+            {
+              "title": "Health",
+              "description": "They are generally healthy but can be prone to certain conditions like hip dysplasia and eye diseases.",
+              "src": "https://img.icons8.com/?size=256&id=35588&format=png"
+            },
+            {
+              "title": "Care",
+              "description": "Shetland Sheepdogs require regular exercise and mental stimulation. They also need regular grooming due to their thick double coat.",
+              "src": "https://img.icons8.com/?size=256&id=78801&format=png"
+            }
+          ]
+        },
+        {
+          "id": "block12",
+          "type": "button",
+          "text": "Next Page",
+          "color": "white",
+          "bgColor": "#0076FF"
+        }
+      ]
+    }
+  ]
+}
