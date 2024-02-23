@@ -50,7 +50,7 @@ export const FunnelPreview = () => {
 
     // Cleanup function to remove event listener on unmount
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [onNavigateBackwards, onNavigateForward]);
 
   return (
     <>

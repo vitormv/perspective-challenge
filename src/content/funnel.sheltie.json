@@ -1,6 +1,6 @@
 {
   "name": "Shetland Sheepdogs Facts",
-  "bgColor": "#F5F5F5",
+  "bgColor": "#fff7ed",
   "pages": [
     {
       "id": "page1",
@@ -8,7 +8,7 @@
         {
           "id": "block1",
           "type": "text",
-          "text": "Welcome to Shetland Sheepdogs Facts!",
+          "text": "Welcome to Shetland Sheepdogs Facts.",
           "color": "#202020",
           "align": "center"
         },
@@ -20,7 +20,7 @@
         {
           "id": "block3",
           "type": "text",
-          "text": "Let's learn about Shetland Sheepdogs!",
+          "text": "Let's learn about these wonderful creatures:",
           "color": "#202020",
           "align": "center"
         },

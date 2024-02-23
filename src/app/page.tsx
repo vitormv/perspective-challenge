@@ -22,10 +22,10 @@ export default function Home() {
           />
         ))}
 
-        <LinkListItem
-          label={`${Object.keys(funnels).length + 1}. Upload my own`}
-          href="/preview/custom"
-        />
+        <div className="border-2 border-dashed border-gray-300 p-10 text-center">
+          <p className="text-gray-600">Or upload your own JSON file.</p>
+          <p className="text-primary">Click or Drop a file here.</p>
+        </div>
       </div>
     </main>
   );

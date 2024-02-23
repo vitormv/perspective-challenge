@@ -17,14 +17,14 @@ export default function Preview() {
         return singlePageFunnel as FunnelType;
       case 'sheltie':
         return sheltieFunnel as FunnelType;
-      default:
+      case 'sample':
         return sampleFunnel as FunnelType;
     }
-  }, []);
+  }, [params.funnel]);
 
   return (
     <main className="flex h-full flex-1 flex-col items-center">
-      <FunnelPreview funnel={funnel} />
+      {funnel && <FunnelPreview funnel={funnel} />}
     </main>
   );
 }
