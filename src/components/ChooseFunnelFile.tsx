@@ -1,81 +1,50 @@
-import { ChangeEventHandler, useRef, useState } from 'react';
+import { ChangeEventHandler, useRef } from 'react';
 import { FunnelType } from 'src/funnel.types';
-import { cn } from 'src/utils/cn';
-import { parseJsonSilent } from 'src/utils/parseJsonSilent';
+import { useFunnelUpload } from 'src/hooks/useFunnelUpload';
 
-type ChooseFunnelFileProps = {
-  onLoadJson: (funnel: FunnelType | undefined) => void;
+type Props = {
+  onUploadSuccess: (funnel: FunnelType) => void;
 };
 
-export const ChooseFunnelFile = ({ onLoadJson }: ChooseFunnelFileProps) => {
+export const ChooseFunnelFile = ({ onUploadSuccess }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [fileName, setFileName] = useState('');
-  const [hasError, setError] = useState(false);
 
-  const showSampleHandler = () => {
-    setFileName('');
-    onLoadJson(undefined);
-    setError(false);
-  };
+  const { error, uploadFile } = useFunnelUpload({ onUploadSuccess });
 
-  const onUploadFile: ChangeEventHandler<HTMLInputElement> = (e: any) => {
-    setError(false);
-    const uploadedFile = e.target.files[0];
+  const onFileSelected: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const uploadedFile = e.target.files?.[0];
 
     if (!uploadedFile) {
-      showSampleHandler();
       return;
     }
 
-    const reader = new FileReader();
-
-    reader.addEventListener('load', () => {
-      const funnelObject = parseJsonSilent(reader.result as string);
-
-      setFileName(uploadedFile.name);
-
-      if (funnelObject) {
-        onLoadJson(funnelObject);
-      } else {
-        setError(true);
-      }
-
-      // @todo handle invalid file
-    });
-
-    reader.readAsText(e.target.files[0]);
+    uploadFile(uploadedFile);
   };
 
-  const hasFileName = fileName !== '';
-
   return (
-    <div className="flex w-full justify-stretch gap-1 text-center">
-      <button
-        onClick={showSampleHandler}
-        className={cn({
-          'grow p-4': true,
-          'bg-primary text-white': !hasFileName,
-        })}
-      >
-        Use sample
-      </button>
+    <div className="flex flex-col gap-4">
+      {error && (
+        <div
+          className="rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700"
+          role="alert"
+        >
+          <strong className="font-bold">Oops!</strong>
+          <span className="sm:inline">{error}</span>
+        </div>
+      )}
 
-      <label
-        className={cn({
-          'grow p-4': true,
-          'bg-primary text-white': hasFileName,
-          'border-solid border-red-600 bg-red-200': hasError && hasFileName,
-        })}
-      >
+      <label className="border-2 border-dashed border-gray-300 p-10 text-center">
+        <p className="text-gray-600">Or upload your own JSON file.</p>
+        <p className="text-primary">Click or Drop a file here.</p>
+
         <input
           ref={inputRef}
           type="file"
           multiple={false}
           name="previewJson"
-          onChange={onUploadFile}
+          onChange={onFileSelected}
           className="mb-10 hidden text-center"
         />
-        {hasFileName ? `Showing ${fileName}` : "Click or drag'n'drop"}
       </label>
     </div>
   );

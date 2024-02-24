@@ -3,7 +3,7 @@ import { ListBLockType } from 'src/funnel.types';
 type ListBlockProps = ListBLockType;
 
 export const ListBlock = ({ items }: ListBlockProps) => (
-  <ul className="flex flex-col gap-6">
+  <ul className="mb-6 flex flex-col gap-6">
     {items.map((item, i) => (
       /* @todo should avoid using array index as key, best would be
        * to have actual ids for each list item, otherwise ensure they NEVER change order */

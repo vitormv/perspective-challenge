@@ -1,8 +1,6 @@
-import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Lora } from 'next/font/google';
-import Head from 'next/head';
-import Image from 'next/image';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -17,7 +15,11 @@ export const metadata: Metadata = {
   description: 'Generate previews of your funnels with ease.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <head>
@@ -26,18 +28,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.variable} ${lora.variable} flex min-h-screen flex-col justify-stretch font-sans text-gray-900`}
       >
-        <nav className="grow-0 bg-primary p-4">
-          <a className="flex-variable mx-auto flex items-center justify-between" href="/">
-            <div className="mr-6 flex flex-shrink-0 items-center text-white">
-              <Image src="/logo.png" width="36" height="36" alt="Perspective logo" />
-            </div>
-
-            <div className="flex w-auto flex-grow items-center font-display text-xl text-white">
-              Funnel Preview
-            </div>
-          </a>
-        </nav>
-
         {children}
       </body>
     </html>

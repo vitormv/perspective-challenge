@@ -10,12 +10,12 @@ export const ButtonBlock = ({ text, color, bgColor }: ButtonBlockProps) => {
 
   return (
     <div
-      className="self-center"
+      className="mt-4"
       style={
         { '--color': color, '--bgColor': bgColor, '--bgColorHover': bgHoverColor } as CSSProperties
       }
     >
-      <button className="min-w-[120px] rounded bg-[var(--bgColor)] px-6 py-2 font-bold text-[var(--color)] filter transition-all duration-200 ease-in-out hover:bg-[var(--bgColorHover)] active:scale-90">
+      <button className="block w-full min-w-[120px] rounded bg-[var(--bgColor)] px-10 py-4 font-bold text-[var(--color)] filter transition-all duration-200 ease-in-out hover:bg-[var(--bgColorHover)] active:scale-90">
         {text}
       </button>
     </div>

@@ -58,7 +58,7 @@ export const FunnelPreview = ({ funnel }: Props) => {
 
   return (
     <div
-      className="box-sizing flex h-full w-full flex-1 flex-col items-center gap-4"
+      className="box-sizing flex h-full w-full flex-1 flex-col items-center gap-4 pb-10"
       style={{ backgroundColor: funnel.bgColor }}
       onTouchStart={swipeHandler.onTouchStart}
       onTouchEnd={swipeHandler.onTouchEnd}
@@ -83,6 +83,7 @@ export const FunnelPreview = ({ funnel }: Props) => {
           </div>
         </div>
       </div>
+
       <div className="flex-0 fixed bottom-0 w-full pt-2">
         <ProgressBar steps={funnel.pages.length} currentStep={activePage + 1} />
       </div>

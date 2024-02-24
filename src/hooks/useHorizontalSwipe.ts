@@ -35,7 +35,7 @@ export const useHorizontalSwipe = (input: SwipeInput): SwipeOutput => {
     const horizontalDistance = touchStart.x - touchEnd.x;
     const verticalDistance = touchStart.y - touchEnd.y;
 
-    // vertical distance should be maximum 50% of the horizontal distance
+    // vertical distance should be no bigger than 50% of the horizontal distance
     const isMostlyHorizontal = Math.abs(verticalDistance) < Math.abs(horizontalDistance) * 0.5;
 
     if (!touchStart || !touchEnd || !isMostlyHorizontal) return;
