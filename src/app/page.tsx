@@ -13,8 +13,10 @@ import { isTestEnv } from 'src/utils/isTestEnv';
 
 export default function Home() {
   const [funnel, setFunnel] = useState<FunnelType>();
+  const [loading, setLoading] = useState(false);
 
   const onSelectFunnel = useCallback(async (uploadedFunnel: FunnelType) => {
+    setLoading(true);
     if (!isTestEnv) {
       const allImageUrls = uploadedFunnel.pages.flatMap((page) => {
         return page.blocks.flatMap((block) => (block.type === 'image' ? block.src : []));
@@ -27,6 +29,7 @@ export default function Home() {
       });
     }
 
+    setLoading(false);
     setFunnel(uploadedFunnel);
   }, []);
 
@@ -36,10 +39,13 @@ export default function Home() {
 
       <main
         className={cn({
-          'flex h-full flex-1 flex-col items-center': true,
-          'gap-10 p-10': !funnel,
+          'relative flex h-full flex-1 flex-col items-center': true,
+          'gap-10 p-4 md:p-10': !funnel,
         })}
       >
+        {loading && (
+          <div className="absolute bottom-0 left-0 right-0 top-0 z-50 bg-white opacity-70"></div>
+        )}
         {funnel && <FunnelPreview funnel={funnel} />}
 
         {!funnel && (
