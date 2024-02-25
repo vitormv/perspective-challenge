@@ -79,7 +79,7 @@ export const FunnelPreview = ({ funnel }: Props) => {
         >
           <ChevronLeftIcon
             className={cn({
-              'h-20 w-20 text-primary': true,
+              'h-20 w-20 text-primary transition-transform active:scale-90 ': true,
               'hover:text-primary-highlight': activePage > 0,
               'cursor-default text-gray-400': activePage === 0,
             })}
