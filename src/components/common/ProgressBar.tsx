@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-interface Props {
+type Props = {
   steps: number;
   currentStep: number;
-}
+};
 
 export const ProgressBar = ({ steps, currentStep }: Props) => {
   const [progress, setProgress] = useState(0);

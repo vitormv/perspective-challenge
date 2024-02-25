@@ -1,3 +1,7 @@
+/**
+ * Since the colors come from the user, we need to make sure that the hover color of the buttons
+ * follows the proper contrast ratio. It will lighten or darken the color based on the brightness.
+ */
 export const getHoverColor = (hexColor: string) => {
   // Convert the hex color to RGB values.
   const rgb =

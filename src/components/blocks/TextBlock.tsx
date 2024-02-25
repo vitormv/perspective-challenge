@@ -1,9 +1,9 @@
 import { TextBlockType } from 'src/funnel.types';
 import { cn } from 'src/utils/cn';
 
-type TextBlockProps = TextBlockType & { hasAppearAnimation?: boolean };
+type Props = TextBlockType & { hasAppearAnimation?: boolean };
 
-export const TextBlock = ({ align, color, text, hasAppearAnimation = false }: TextBlockProps) => (
+export const TextBlock = ({ align, color, text, hasAppearAnimation = false }: Props) => (
   <div
     className={cn({
       'mt-4 font-display text-2xl': true,

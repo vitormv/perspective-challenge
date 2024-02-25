@@ -1,8 +1,8 @@
 import { ListBLockType } from 'src/funnel.types';
 
-type ListBlockProps = ListBLockType;
+type Props = ListBLockType;
 
-export const ListBlock = ({ items }: ListBlockProps) => (
+export const ListBlock = ({ items }: Props) => (
   <ul className="mb-6 flex flex-col gap-6">
     {items.map((item, i) => (
       /* @todo should avoid using array index as key, best would be

@@ -3,9 +3,10 @@ import { useMemo } from 'react';
 import { ButtonBlockType } from 'src/funnel.types';
 import { getHoverColor } from 'src/utils/colors/getHoverColor';
 
-type ButtonBlockProps = ButtonBlockType;
+type Props = ButtonBlockType;
 
-export const ButtonBlock = ({ text, color, bgColor }: ButtonBlockProps) => {
+export const ButtonBlock = ({ text, color, bgColor }: Props) => {
+  // calculate hover color based on bg color (lighten or darken it a bit depending on the brightness)
   const bgHoverColor = useMemo(() => getHoverColor(bgColor), [bgColor]);
 
   return (

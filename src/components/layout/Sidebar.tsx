@@ -3,8 +3,8 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { LinkListItem } from 'src/components/common/LinkListItem';
 import { funnels } from 'src/content/funnels';
-import { ChooseFunnelFile } from 'src/components/ChooseFunnelFile';
 import { FunnelType } from 'src/funnel.types';
+import { UploadDropzone } from 'src/components/UploadDropzone';
 
 type Props = {
   isOpen: boolean;
@@ -33,10 +33,10 @@ export const Sidebar = ({ isOpen, setOpen, onSelectFunnel }: Props) => {
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
                 as={Fragment}
-                enter="transform transition ease-in-out duration-300 sm:duration-700"
+                enter="transform transition ease-in-out duration-300"
                 enterFrom="translate-x-full"
                 enterTo="translate-x-0"
-                leave="transform transition ease-in-out duration-300 sm:duration-700"
+                leave="transform transition ease-in-out duration-300"
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
@@ -46,7 +46,7 @@ export const Sidebar = ({ isOpen, setOpen, onSelectFunnel }: Props) => {
                     enter="ease-in-out duration-300"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
-                    leave="ease-in-out duration-300"
+                    leave="ease-in-out duration-100"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
@@ -78,7 +78,7 @@ export const Sidebar = ({ isOpen, setOpen, onSelectFunnel }: Props) => {
                           />
                         ))}
 
-                        <ChooseFunnelFile onUploadSuccess={onSelectFunnel} />
+                        <UploadDropzone onUploadSuccess={onSelectFunnel} />
                       </div>
                     </div>
                   </div>
