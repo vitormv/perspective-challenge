@@ -48,7 +48,7 @@
         {
           "id": "block5",
           "type": "button",
-          "text": "Next Page",
+          "text": "Yes, I want to learn more  👉",
           "color": "#1D2325",
           "bgColor": "#D79C75"
         }
@@ -60,14 +60,7 @@
         {
           "id": "block9",
           "type": "text",
-          "text": "Even more about Shetland Sheepdogs!",
-          "color": "#1D2325",
-          "align": "center"
-        },
-        {
-          "id": "block9.5",
-          "type": "text",
-          "text": "Because we can't resist these adorable faces 😍",
+          "text": "They are also commonly known as Shelties 🐾. Because we can't resist these adorable faces 😍",
           "color": "#1D2325",
           "align": "center"
         },
@@ -100,7 +93,7 @@
         {
           "id": "block12",
           "type": "button",
-          "text": "Next Page",
+          "text": "Amazing stuff! Tell me more  👉",
           "color": "#1D2325",
           "bgColor": "#D79C75"
         }
@@ -117,9 +110,16 @@
           "align": "center"
         },
         {
+          "id": "block7",
+          "type": "text",
+          "text": "If you want to keep receiving fun facts and cute pictures of Shelties, sign up for our newsletter!",
+          "color": "#1D2325",
+          "align": "center"
+        },
+        {
           "id": "block12",
           "type": "button",
-          "text": "Thanks for the info!",
+          "text": "Sign me up for the newsletter 📬",
           "color": "#1D2325",
           "bgColor": "#D79C75"
         }
