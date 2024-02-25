@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx" // this is necessary for Jest to run properly, but Nextjs doesnt like it
+  }
+}

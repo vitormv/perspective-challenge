@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { FunnelType } from 'src/funnel.types';
 import { cn } from 'src/utils/cn';
@@ -10,8 +10,6 @@ type Props = {
 };
 
 export const UploadDropzone = ({ onUploadSuccess }: Props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
   const [error, setError] = useState<string | undefined>();
 
   const uploadFile = useCallback(
@@ -102,7 +100,6 @@ export const UploadDropzone = ({ onUploadSuccess }: Props) => {
         )}
 
         <input
-          ref={inputRef}
           type="file"
           multiple={false}
           name="previewJson"

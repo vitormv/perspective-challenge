@@ -1,26 +1,7 @@
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Home from './page';
-import { FunnelType } from 'src/funnel.types';
 
 describe('Home', () => {
-  const mockFunnel: FunnelType = {
-    name: 'Test Funnel',
-    bgColor: '#ffffff',
-    pages: [
-      {
-        id: 'page-1',
-        blocks: [
-          {
-            id: 'image-1',
-            type: 'image',
-            src: 'https://example.com/image.jpg',
-          },
-        ],
-      },
-    ],
-  };
-
   it('renders without crashing', () => {
     render(<Home />);
 
