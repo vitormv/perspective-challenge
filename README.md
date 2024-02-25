@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This tool allows you to preview funnels with ease. Some notable features include:
 
-* Fully typescrtype-safe codebase with Typescript. No more runtime errors 🙌.
+* Fully type-safe codebase with Typescript. No more runtime errors 🙌.
 * Fully responsive.
 * User friendly animations and transitions when interacting with the funnel preview, also when navigating between pages.
 * You can choose one of the provided funnel examples, or also upload your own JSON file: it will be validated the file against the provided structure from Perspective ([source](https://perspectiveco.notion.site/Work-Sample-Senior-Frontend-Engineer-Vitor-Mello-c094221151574b0790b68f1d595f03c2)).
