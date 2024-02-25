@@ -40,7 +40,7 @@ export default function Home() {
       <main
         className={cn({
           'relative flex h-full flex-1 flex-col items-center': true,
-          'gap-10 p-4 md:p-10': !funnel,
+          'gap-10 p-4 py-10 sm:p-10': !funnel,
         })}
       >
         {loading && (

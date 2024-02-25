@@ -9,7 +9,7 @@
           "id": "block1",
           "type": "text",
           "text": "Welcome to Shetland Sheepdogs Facts.",
-          "color": "#202020",
+          "color": "#1D2325",
           "align": "center"
         },
         {
@@ -21,7 +21,7 @@
           "id": "block3",
           "type": "text",
           "text": "Let's learn about these wonderful creatures:",
-          "color": "#202020",
+          "color": "#1D2325",
           "align": "center"
         },
         {
@@ -49,8 +49,8 @@
           "id": "block5",
           "type": "button",
           "text": "Next Page",
-          "color": "white",
-          "bgColor": "#0076FF"
+          "color": "#1D2325",
+          "bgColor": "#D79C75"
         }
       ]
     },
@@ -61,7 +61,14 @@
           "id": "block9",
           "type": "text",
           "text": "Even more about Shetland Sheepdogs!",
-          "color": "#202020",
+          "color": "#1D2325",
+          "align": "center"
+        },
+        {
+          "id": "block9.5",
+          "type": "text",
+          "text": "Because we can't resist these adorable faces 😍",
+          "color": "#1D2325",
           "align": "center"
         },
         {
@@ -94,8 +101,27 @@
           "id": "block12",
           "type": "button",
           "text": "Next Page",
-          "color": "white",
-          "bgColor": "#0076FF"
+          "color": "#1D2325",
+          "bgColor": "#D79C75"
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
+        {
+          "id": "block9",
+          "type": "text",
+          "text": "Thanks for taking the time to learn something new today 😄",
+          "color": "#1D2325",
+          "align": "center"
+        },
+        {
+          "id": "block12",
+          "type": "button",
+          "text": "Thanks for the info!",
+          "color": "#1D2325",
+          "bgColor": "#D79C75"
         }
       ]
     }
