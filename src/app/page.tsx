@@ -9,18 +9,23 @@ import { cn } from 'src/utils/cn';
 import { Navbar } from 'src/components/layout/Navbar';
 import { UploadDropzone } from 'src/components/UploadDropzone';
 import { preloadImages } from 'src/utils/preloadImages';
+import { isTestEnv } from 'src/utils/isTestEnv';
 
 export default function Home() {
   const [funnel, setFunnel] = useState<FunnelType>();
 
   const onSelectFunnel = useCallback(async (uploadedFunnel: FunnelType) => {
-    const allImageUrls = uploadedFunnel.pages.flatMap((page) => {
-      return page.blocks.flatMap((block) => (block.type === 'image' ? block.src : []));
-    });
+    if (!isTestEnv) {
+      const allImageUrls = uploadedFunnel.pages.flatMap((page) => {
+        return page.blocks.flatMap((block) => (block.type === 'image' ? block.src : []));
+      });
 
-    // before navigating to the Funnel, ensure all images are preloaded, to prevent
-    // massive layout shifts which can also disrupt the user's experience and transitions
-    await preloadImages(allImageUrls);
+      // before navigating to the Funnel, ensure all images are preloaded, to prevent
+      // massive layout shifts which can also disrupt the user's experience and transitions
+      await preloadImages(allImageUrls).catch((error) => {
+        console.error('Error preloading images', error);
+      });
+    }
 
     setFunnel(uploadedFunnel);
   }, []);

@@ -5,6 +5,7 @@ type Props = {
 
 export const LinkListItem = ({ label, onClick }: Props) => (
   <button
+    type="button"
     className="group flex items-center justify-between gap-4 rounded-md bg-secondary p-4 pr-6 text-left text-black transition-all duration-300 hover:bg-secondary-highlight active:scale-90"
     onClick={onClick}
   >

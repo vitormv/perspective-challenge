@@ -1,6 +1,15 @@
 {
-  "extends": ["next", "next/core-web-vitals", "prettier", "plugin:react-hooks/recommended"],
-  "plugins": ["unused-imports"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["jest", "unused-imports"],
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
     "react-hooks/exhaustive-deps": "error",
     "@next/next/no-img-element": "off",
