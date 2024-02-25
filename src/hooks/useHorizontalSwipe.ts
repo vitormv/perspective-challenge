@@ -16,6 +16,10 @@ type Coords = {
   y: number;
 };
 
+/**
+ * Handy hook for enabling horizontal swiping on any component.
+ * The returned methods should be attached to the desired DOM element's onTouchStart, onTouchMove and onTouchEnd events.
+ */
 export const useHorizontalSwipe = (input: SwipeInput): SwipeOutput => {
   const [touchStart, setTouchStart] = useState<Coords>({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState<Coords>({ x: 0, y: 0 });
@@ -35,7 +39,9 @@ export const useHorizontalSwipe = (input: SwipeInput): SwipeOutput => {
     const horizontalDistance = touchStart.x - touchEnd.x;
     const verticalDistance = touchStart.y - touchEnd.y;
 
-    // vertical distance should be no bigger than 50% of the horizontal distance
+    // in order to be considered an horizontal swipe, the vertical distance should be
+    // no bigger than 50% of the horizontal distance. This prevents accidental swipes
+    // while scrolling for example.
     const isMostlyHorizontal = Math.abs(verticalDistance) < Math.abs(horizontalDistance) * 0.5;
 
     if (!touchStart || !touchEnd || !isMostlyHorizontal) return;
