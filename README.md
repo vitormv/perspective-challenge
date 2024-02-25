@@ -12,6 +12,7 @@ This tool allows you to preview funnels with ease. Some notable features include
 * It supports keyboard arrow navigation (on desktop), and swipe navigation to move between pages.
 * Most important flows (funnel preview, upload and json parsing) are covered with unit tests using `jest` and `testing-library`.
 * Added Github Workflow that automatically lints, tests, and builds to ensure no breaking changes are commited, and that the code style follows desired rules.
+* When opening a preview funnel, ensure all images are pre-loaded for the best experience, and to properly see animations.
 
 
 ## Running locally
